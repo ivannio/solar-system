@@ -1,3 +1,8 @@
 import '../styles/main.scss';
+import planets from './components/printPlanets/printPlanets';
 
-console.error('hi');
+const init = () => {
+  planets.planetPrinter();
+};
+
+init();
