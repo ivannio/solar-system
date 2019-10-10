@@ -1,0 +1,19 @@
+#planet-zone {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.planet {
+  width: 20em;
+  height: 30em;
+  margin: 0.5em;
+  border: solid rgba(255, 250, 240, 0.808) 4px;
+  border-radius: 1em;
+  text-align: center;
+ }
+
+.planetHeader {
+  line-height: 11.5em;
+  color: rgba(240, 246, 255, 0.87);
+}
