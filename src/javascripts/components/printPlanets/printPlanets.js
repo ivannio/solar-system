@@ -3,7 +3,6 @@ import './printPlanets.scss';
 import utils from '../../helpers/utilities';
 import data from '../../helpers/data/planets';
 
-
 const planetPrinter = () => {
   const planets = data.getPlanets();
   let domString = '';
@@ -31,4 +30,22 @@ const addHoverListeners = () => {
   $('.planet').hover(showImage, showName);
 };
 
-export default { planetPrinter, addHoverListeners };
+// const clickOnPLanet = (planet) => {
+//   const planets = data.getPlanets();
+//   let domString = '';
+//   for (let i = 0; planets.length; i += 1) {
+//     domString += `<div class="planet-full>
+//   <h1 class="planetHeader-full">${planets[i]}</h1>
+//   </div>`
+
+//   }
+// }
+
+const clickEvent = (e) => {
+  const clickedPlanet = $(e.target);
+  const planets = data.getPlanets();
+  const planetObj = planets.filter(clickedPlanet);
+  console.log(planetObj);
+};
+
+export default { planetPrinter, addHoverListeners, clickEvent };
