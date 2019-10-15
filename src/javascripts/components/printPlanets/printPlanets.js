@@ -30,34 +30,35 @@ const addHoverListeners = () => {
   $('.planet').hover(showImage, showName);
 };
 
-// const clickOnPLanet = (planet) => {
-//   const planets = data.getPlanets();
-//   let domString = '';
-//   for (let i = 0; planets.length; i += 1) {
-//     domString += `<div class="planet-full>
-//   <h1 class="planetHeader-full">${planets[i]}</h1>
-//   </div>`
-
-//   }
-// }
-
 const clickEvent = (e) => {
   const clickedPlanet = $(e.target);
   const planets = data.getPlanets();
   let planetObj = {};
   planetObj = planets.find((x) => x.name === clickedPlanet.prop('id'));
-  console.log(planetObj);
+  let domString = '';
+  domString += `<div class="planet-full">
+  <span class="planetHeader-full">${planetObj.name}</span>
+  <span class="x">❌</span>
+  <img class="img-full" src="${planetObj.imageUrl}">
+  <p class="planet-description">${planetObj.description}</p>  
+  </div>`;
+  utils.printToDom('planet-zone', '');
+  utils.printToDom('full-planet', domString);
 };
 
-const addClickEvent = () => {
+const clickX = () => {
+  planetPrinter();
+};
+
+const addClickEvents = () => {
   $('.planet').on('click', clickEvent);
+  $('.x').on('click', clickX);
 };
 
 const init = () => {
   planetPrinter();
   addHoverListeners();
-  addClickEvent();
-  addClickEvent();
+  addClickEvents();
   clickEvent();
 };
 

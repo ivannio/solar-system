@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+
 #planet-zone {
   display: flex;
   flex-flow: row wrap;
@@ -19,4 +21,30 @@
 .planetHeader {
   line-height: 7.80em;
   color: rgba(240, 246, 255, 0.87);
+  font-family: 'Turret Road', cursive;
 }
+
+.planet-full {
+  border: solid rgba(255, 250, 240, 0.808) 4px;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  * {
+    pointer-events: none;
+  }
+}
+
+.planetHeader-full {
+  color: rgba(240, 246, 255, 0.87);
+  font-size: 5em;
+  font-family: 'Turret Road', cursive;
+}
+
+.x {
+  float: right;
+  font-size: 2.5em;
+}
+
+.planet-description {
+  color: rgba(240, 246, 255, 0.87);
+}
+
