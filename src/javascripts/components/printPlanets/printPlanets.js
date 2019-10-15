@@ -7,7 +7,7 @@ const planetPrinter = () => {
   const planets = data.getPlanets();
   let domString = '';
   for (let i = 0; i < planets.length; i += 1) {
-    domString += `<div class="planet" id="${planets[i].name}-div">
+    domString += `<div class="planet" id="${planets[i].name}">
       <h1 class="planetHeader">${planets[i].name}</h1> <img src="${planets[i].imageUrl}">
       </div>`;
   } utils.printToDom('planet-zone', domString);
@@ -44,8 +44,21 @@ const addHoverListeners = () => {
 const clickEvent = (e) => {
   const clickedPlanet = $(e.target);
   const planets = data.getPlanets();
-  const planetObj = planets.filter(clickedPlanet);
+  let planetObj = {};
+  planetObj = planets.find((x) => x.name === clickedPlanet.prop('id'));
   console.log(planetObj);
 };
 
-export default { planetPrinter, addHoverListeners, clickEvent };
+const addClickEvent = () => {
+  $('.planet').on('click', clickEvent);
+};
+
+const init = () => {
+  planetPrinter();
+  addHoverListeners();
+  addClickEvent();
+  addClickEvent();
+  clickEvent();
+};
+
+export default { init };

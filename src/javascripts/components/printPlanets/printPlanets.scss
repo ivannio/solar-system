@@ -11,6 +11,9 @@
   border: solid rgba(255, 250, 240, 0.808) 4px;
   border-radius: 1em;
   text-align: center;
+  *{
+    pointer-events: none;
+  }
  }
 
 .planetHeader {
