@@ -3,16 +3,16 @@ import './printPlanets.scss';
 import utils from '../../helpers/utilities';
 import data from '../../helpers/data/planets';
 
-
 const planetPrinter = () => {
   const planets = data.getPlanets();
   let domString = '';
   for (let i = 0; i < planets.length; i += 1) {
-    domString += `<div class="planet" id="${planets[i].name}-div">
+    domString += `<div class="planet" id="${planets[i].name}">
       <h1 class="planetHeader">${planets[i].name}</h1> <img src="${planets[i].imageUrl}">
       </div>`;
   } utils.printToDom('planet-zone', domString);
   $('.planet img').hide();
+  utils.printToDom('full-planet', '');
 };
 
 const showImage = (e) => {
@@ -31,4 +31,37 @@ const addHoverListeners = () => {
   $('.planet').hover(showImage, showName);
 };
 
-export default { planetPrinter, addHoverListeners };
+const addClickEvents = (funct) => {
+  $('.planet').on('click', funct);
+};
+
+
+const clickEvent = (e) => {
+  const clickedPlanet = $(e.target);
+  const planets = data.getPlanets();
+  let planetObj = {};
+  planetObj = planets.find((x) => x.name === clickedPlanet.prop('id'));
+  let domString = '';
+  domString += `<div class="planet-full">
+  <span class="planetHeader-full">${planetObj.name}</span>
+  <span class="x">❌</span>
+  <img class="img-full" src="${planetObj.imageUrl}">
+  <p class="planet-description">${planetObj.description}</p>  
+  </div>`;
+  utils.printToDom('planet-zone', '');
+  utils.printToDom('full-planet', domString);
+  $('.x').on('click', () => {
+    planetPrinter();
+    addHoverListeners();
+    addClickEvents(clickEvent);
+  });
+};
+
+const init = () => {
+  planetPrinter();
+  addHoverListeners();
+  addClickEvents(clickEvent);
+  clickEvent();
+};
+
+export default { init };
