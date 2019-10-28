@@ -12,6 +12,7 @@ const planetPrinter = () => {
       </div>`;
   } utils.printToDom('planet-zone', domString);
   $('.planet img').hide();
+  utils.printToDom('full-planet', '');
 };
 
 const showImage = (e) => {
@@ -30,6 +31,11 @@ const addHoverListeners = () => {
   $('.planet').hover(showImage, showName);
 };
 
+const addClickEvents = (funct) => {
+  $('.planet').on('click', funct);
+};
+
+
 const clickEvent = (e) => {
   const clickedPlanet = $(e.target);
   const planets = data.getPlanets();
@@ -44,21 +50,17 @@ const clickEvent = (e) => {
   </div>`;
   utils.printToDom('planet-zone', '');
   utils.printToDom('full-planet', domString);
-};
-
-const clickX = () => {
-  planetPrinter();
-};
-
-const addClickEvents = () => {
-  $('.planet').on('click', clickEvent);
-  $('.x').on('click', clickX);
+  $('.x').on('click', () => {
+    planetPrinter();
+    addHoverListeners();
+    addClickEvents(clickEvent);
+  });
 };
 
 const init = () => {
   planetPrinter();
   addHoverListeners();
-  addClickEvents();
+  addClickEvents(clickEvent);
   clickEvent();
 };
 
