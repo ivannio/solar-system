@@ -57,11 +57,20 @@ const clickEvent = (e) => {
   });
 };
 
+const addSearchListener = () => {
+  $('#searchBar').on('keypress', () => {
+    let searchInput = '';
+    searchInput = $('#searchBar').val;
+    console.log(searchInput);
+  });
+};
+
 const init = () => {
   planetPrinter();
   addHoverListeners();
   addClickEvents(clickEvent);
   clickEvent();
+  addSearchListener();
 };
 
 export default { init };
