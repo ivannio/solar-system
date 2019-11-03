@@ -17,9 +17,14 @@ const addSearchListener = () => {
     let searchInput = '';
     searchInput = document.getElementById('searchBar').value;
     const planetNames = getPlanetNames();
-    for (let i = 0; i < planetNames.length; i += 1) {
-      $(`#${planetNames[i]}`).addClass('hide');
-      if (searchInput.toLowerCase() === planetNames[i].toLowerCase()) {
+    for (let j = 0; j < planetNames.length; j += 1) {
+      $(`#${planetNames[j]}`).addClass('hide');
+      if (searchInput.toLowerCase() === planetNames[j].toLowerCase()) {
+        $(`#${planetNames[j]}`).removeClass('hide');
+      }
+    }
+    if (searchInput === '') {
+      for (let i = 0; i < planetNames.length; i += 1) {
         $(`#${planetNames[i]}`).removeClass('hide');
       }
     }
