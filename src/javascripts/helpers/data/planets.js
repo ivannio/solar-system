@@ -64,9 +64,9 @@ const planets = [
     nameOfLargestMoon: 'Triton',
   },
   {
-    name: 'F*ck It, Pluto',
+    name: 'Pluto',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/1024px-Pluto_in_True_Color_-_High-Res.jpg',
-    description: 'Pluto  is a dwarf planet in the Kuiper belt, a ring of bodies beyond Neptune. It was the first Kuiper belt object to be discovered and is the largest known plutoid (or ice dwarf).',
+    description: 'Pluto may not be an actual planet anymore, but I grew up being taught that it was, so it holds a special place in my heart. Also, including it here makes this page show up with a nice 3 row 3 column set of planet cards on my machine, so I\'m adding it',
     isGasPlanet: false,
     numberOfMoons: 5,
     nameOfLargestMoon: 'Charon',
