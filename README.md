@@ -10,6 +10,5 @@
 ![full-planet-view](https://raw.githubusercontent.com/ivannio/solar-system/master/screenshots/solar-large-view.png)
 
 ## How To Run
-* Clone this repo
-* Install Webpack node modules with bootstrap and jquery
-* Run the start script
+* Follow this linnk to the deployed firebase project:
+* https://solar-system-eae30.firebaseapp.com/
